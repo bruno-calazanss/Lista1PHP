@@ -17,16 +17,15 @@
         </div>
     </div>
     <?php
-        if(isset($_GET['num1']) && isset($_GET['num2']))
-        { ?>
+    if(isset($_GET['num1']) && isset($_GET['num2'])) { ?>
         <div class="card-footer">
             <h5 class="d-inline-block text-muted font-weight-normal">
                 <?php 
-                    echo $_GET['num1'] . ' + ' . $_GET['num2'] . ' = ' . ($_GET['num1'] + $_GET['num2']) . "<br>";
+                    echo "$_GET[num1] + $_GET[num2] = " . ($_GET['num1'] + $_GET['num2']) . '<br>';
                 ?>
             </h3>
             <button type="button" class="float-right btn btn-danger" onclick="$('.card-footer').remove();">X</button>
         </div>
     <?php
-        } ?>
+    } ?>
 </div>
