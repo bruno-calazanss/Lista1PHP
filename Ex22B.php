@@ -45,7 +45,7 @@
                                 echo "Empate: ";
                             }
                         }
-                        echo $_GET["precoV$i"]-$_GET["precoC$i"] . "<br><br>";
+                        echo "R$ " . $_GET["precoV$i"]-$_GET["precoC$i"] . "<br><br>";
                     }
                     echo "<hr class='mt-0'>";
                     echo 'Média de preços de custo: ' . $somaCusto/$qtd . '<br>';
