@@ -1,6 +1,8 @@
 <?php
     $qtdInputs = 4;
     $qtd = count($_GET)>1 ? (count($_GET)-2)/$qtdInputs : 0;
+    $sexo = array("M" => "Masculino", "F" => "Feminino");
+    $saude = array("S" => "Saudável", "D" => "Debilitado");
 ?>
 
 <div class="card">
@@ -28,13 +30,13 @@
                         <div class="form-group w-100 d-inline-block">
                             <label for="<?= "sexo$i" ?>"><?= "Sexo do candidato $i:"; ?></label>
                             <input type="hidden" name="<?= "sexo$i" ?>" value="<?= $_GET["sexo$i"] ?>">
-                            <input type="text" value="<?= ($_GET["sexo$i"] == "M") ? "Masculino" : "Feminino"; ?>" 
+                            <input type="text" value="<?= $sexo[$_GET["sexo$i"]]; ?>" 
                                 class="form-control" id="<?= "sexo$i" ?>" disabled>
                         </div>
                         <div class="form-group w-100 d-inline-block">
                             <label for="<?= "saude$i" ?>"><?= "Estado de saúde do candidato $i:"; ?></label>
                             <input type="hidden" name="<?= "saude$i" ?>" value="<?= $_GET["saude$i"] ?>">
-                            <input type="text" value="<?= ($_GET["saude$i"] == "S") ? "Saudável" : "Debilitado"; ?>" 
+                            <input type="text" value="<?= $saude[$_GET["saude$i"]]; ?>" 
                                 class="form-control" id="<?= "saude$i" ?>" disabled>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
 
 <div class="card">
     <div class="card-header">
-        <span class="align-middle">Ex20</span>
+        <span class="align-middle">Ex24</span>
         <a href="index.php?ex=Ex24B.php" class="d-inline-block float-right btn btn-danger">Reiniciar</a>
     </div>
     <div class="card-body">
