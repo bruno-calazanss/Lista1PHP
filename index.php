@@ -12,7 +12,7 @@
     <main role="main" class="container mb-5">
         <?php 
             if(!empty($_GET["ex"])) {
-                require_once($_GET["ex"]);
+                require_once(ucfirst($_GET['ex']).'B.php');
             }
             else {
                 require_once("Ex1B.php"); 
