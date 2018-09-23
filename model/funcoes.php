@@ -31,19 +31,19 @@ class Lista {
             $ret .= "$num1  /  $num2  = " . ($num1 / $num2);
         }
         else {
-            $ret .= "Impossível!";
+            $ret .= "Impossivel!";
         }
         return $ret;
     }
 
     private function ex3($km, $l) {
-        return 'Consumo médio: ' . ($km / $l) . 'km/L<br>';
+        return 'Consumo medio: ' . ($km / $l) . 'km/L<br>';
     }
 
     private function ex4($nome, $vendas, $salario) {
         $ret = "Nome: $nome<br>";
         $ret .= "Salário fixo: R$ $salario<br>";
-        $ret .= 'Comissão: R$ ' . ($vendas*0.15) . '<br>';
+        $ret .= 'Comissao: R$ ' . ($vendas*0.15) . '<br>';
         $ret .= 'Salário final: R$ ' . ($salario + ($vendas*0.15)) . '<br>';
         return $ret;
     }
@@ -53,7 +53,7 @@ class Lista {
         $ret .= "AV1: $av1<br>";
         $ret .= "AV2: $av2<br>";
         $ret .= "AV3: $av3<br>";
-        $ret .= 'Média: ' . ($av1+$av2+$av3)/3 . '<br>';
+        $ret .= 'Media: ' . ($av1+$av2+$av3)/3 . '<br>';
         return $ret;
     }
 
@@ -81,7 +81,7 @@ class Lista {
 
     private function ex10($valor) {
         $ret = "Valor da compra: R$ $valor<br>";
-        $ret .= 'Valor da prestação (x5): R$ ' . ($valor/5) . '<br>';
+        $ret .= 'Valor da prestacao (x5): R$ ' . ($valor/5) . '<br>';
         return $ret;
     }
 
@@ -125,7 +125,7 @@ class Lista {
             return "O número $num está no intervalo entre 100 e 200.";
         }
         else {
-            return "O número $num não está no intervalo entre 100 e 200.";
+            return "O número $num nao está no intervalo entre 100 e 200.";
         }
     }
 
@@ -135,18 +135,90 @@ class Lista {
         $ret .= "AV2: $av2<br>";
         $ret .= "AV3: $av3<br>";
         $media = ($av1+$av2+$av3)/3;
-        $ret .= "Média: $media<br>";
+        $ret .= "Media: $media<br>";
         if($media >= 7) {
-            $ret .= 'Situação: aprovado';
+            $ret .= 'Situacao: aprovado';
         }
         else {
             if($media >= 5.1) {
-                $ret .= 'Situação: recuperação';
+                $ret .= 'Situacao: recuperacao';
             }
             else {
-                $ret .= 'Situação: reprovado';
+                $ret .= 'Situacao: reprovado';
             }
         }
+        return $ret;
+    }
+
+    private function ex17($n) {
+        $ret = 'Números entre 10 e 150: <br><br>';
+        for($i=0; $i<count($n); $i++)
+        {
+            if($n[$i] >= 10 && $n[$i] <= 150)
+            {
+                $ret .= 'Num' . ($i+1) . ":{$n[$i]}<br>";
+            }
+        }
+        return $ret;
+    }
+
+    private function ex18($idade) {
+        for($i=0, $ret=''; $i<count($idade); $i++) {
+            if($idade[$i] >= 18) {
+                $ret .= 'Pessoa ' . ($i+1) . ' = Maior de idade.<br>';
+            }
+        }
+        return $ret;
+    }
+
+    private function ex19($nome, $sexo) {
+        $sexoIndex = array("M" => "Masculino", "F" => "Feminino");
+        $sexoCont = array("M" => 0, "F" => 0);
+        for($i=0, $ret=''; $i<count($nome); $i++)
+        {
+            $ret .= "$nome[$i] = {$sexoIndex[$sexo[$i]]}<br>";
+            $sexoCont[$sexo[$i]]++;
+        }
+        $ret .= '<br>';
+        $ret .= "Total de homens: $sexoCont[M]<br>";
+        $ret .= "Total de mulheres: $sexoCont[F]<br>";
+        return $ret;
+    }
+
+    private function ex20($valor, $ano) {
+        for($i=0, $ano2000Cont=0, $ret=''; $i<count($ano); $i++) {
+            $ret .= 'Veiculo '.($i+1).':<br><br>';
+            if($ano[$i] <= 2000) {
+                $ret .= 'Valor do desconto = R$ ' . ($valor[$i]*0.12) . '<br>';
+                $ret .= 'Valor a ser pago = R$ ' . ($valor[$i]*0.88) . '<br>';
+            }
+            else {
+                $ret .= 'Valor do desconto = R$ ' . ($valor[$i]*0.07) . '<br>';
+                $ret .= 'Valor a ser pago = R$ ' . ($valor[$i]*0.93) . '<br>';
+            }
+            $ret .= '<br>';
+            $ano2000Cont = ($ano[$i] <= 2000) ? ++$ano2000Cont : $ano2000Cont;
+        }
+        $ret .= '<hr>';
+        $ret .= "Total de carros ate o ano 2000 = $ano2000Cont<br>";
+        $ret .= "Total geral = $i<br>";
+        return $ret;
+    }
+
+    private function ex21($nome, $idade, $sexo, $saude) {
+        for($i=0, $apto=0, $ret=''; $i<count($nome); $i++) {
+            $ret .= "{$nome[$i]}<br>";
+            if($idade[$i] >= 18 && $saude[$i] == "S") {
+                $ret .= 'Apto para o servico militar<br><br>';
+                $apto++;
+            }
+            else {
+                $ret .= 'Nao apto para o servico militar<br><br>';
+            }
+        }
+        $ret .= '<hr>';
+        $ret .= "Total candidatos aptos para o servico militar = $apto<br>";
+        $ret .= "Total geral = $i<br>";
         return $ret;
     }
 }
