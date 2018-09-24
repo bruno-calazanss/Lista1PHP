@@ -407,6 +407,172 @@ class Lista {
             return "Não é um triângulo!";
         }
     }
+
+    private function ex34($aulas, $horas, $nivel) {
+        switch($nivel) {
+            case "N1": {
+                $salario = $horas*$aulas*12;
+                break;
+            }
+            case "N2": {
+                $salario = $horas*$aulas*17;
+                break;
+            }
+            case "N3": {
+                $salario = $horas*$aulas*25;
+                break;
+            }
+        }
+        return "Salário: R$ $salario";
+    }
+
+    private function ex35($idade) {
+        $ret = '';
+        if($idade >= 5 && $idade <= 25) {
+            $ret .= "Categoria: ";
+            if($idade <= 7) {
+                $ret .= "Infantil A";
+            }
+            elseif($idade <= 10) {
+                $ret .= "Infantil B";
+            }
+            elseif($idade <= 13) {
+                $ret .= "Juvenil A";
+            }
+            elseif($idade <= 17) {
+                $ret .= "Juvenil B";
+            }
+            else {
+                $ret .= "Sênior";
+            }
+        }
+        else {
+            $ret .= "Idade fora da faixa etária!";
+        }
+        return $ret;
+    }
+
+    private function ex36($kw, $tipo) {
+        $ret = '';
+        switch($tipo) {
+            case "R": {
+                $conta = $kw*0.6;
+                break;
+            }
+            case "C": {
+                $conta = $kw*0.48;
+                break;
+            }
+            case "I": {
+                $conta = $kw*1.29;
+                break;
+            }
+        }
+        $ret .= "Valor da conta: R$ $conta";
+        return $ret;
+    }
+
+    private function ex37($nome, $altura, $idade, $sexo) {
+        $ret = '';
+        $ret .= "Nome: $nome<br>";
+        $ret .= "Peso ideal: Kg ";
+        if($sexo == "M") {
+            if($altura <= 1.7) {
+                if($idade <= 40) {
+                    $ret .= (72.7*$altura)-50;
+                }
+                else {
+                    $ret .= (72.7*$altura)-58;
+                }
+            }
+            else {
+                if($idade <= 20) {
+                    $ret .= (72.7*$altura)-58;
+                }
+                elseif($idade <= 39) {
+                    $ret .= (72.7*$altura)-53;
+                }
+                else {
+                    $ret .= (72.7*$altura)-45;
+                }
+            }
+        }
+        else {
+            if($altura <= 1.5) {
+                if($idade >= 35) {
+                    $ret .= (62.1*$altura)-45;
+                }
+                else {
+                    $ret .= (62.1*$altura)-49;
+                }
+            }
+            else {
+                $ret .= (62.1*$altura)-44.7;
+            }
+        }
+        return $ret;
+    }
+
+    private function ex38($laboratorio, $avs, $ef) {
+        return "Média ponderada = " . (($laboratorio*2) + ($avs*3) + ($ef*5))/10;
+    }
+
+    private function ex39($nome, $matricula, $laboratorio, $avs, $ef) {
+        $ret = '';
+        $ret .= "Nome: $nome<br>";
+        $ret .= "Matrícula: $matricula<br>";
+        $media = (($laboratorio*2) + ($avs*3) + ($ef*5))/10;
+        $ret .= "Média ponderada = " . (($laboratorio*2) + ($avs*3) + ($ef*5))/10 . "<br>";
+        $ret .= "Classificação: ";
+        if($media >= 8) {
+            $ret .= 'A';
+        }
+        elseif($media >= 7) {
+            $ret .= 'B';
+        }
+        elseif($media >= 6) {
+            $ret .= 'C';
+        }
+        elseif($media >= 5) {
+            $ret .= 'D';
+        }
+        else {
+            $ret .= 'R';
+        }
+        return $ret;
+    }
+
+    private function ex40($nome, $idade, $grupo) {
+        $ret = '';
+        $ret .= "Nome: $nome<br>";
+        $ret .= "Idade: $idade<br>";
+        if($idade >= 17 && $idade <= 70) {
+            $gAlto = array(3,4,5,6,9);
+            $gMedio = array(2,3,4,5,8);
+            $gBaixo = array(1,2,3,4,7);
+            $indice = array("A" => $gAlto, "M" => $gMedio, "B" => $gBaixo);
+            $ret .= "Categoria: ";
+            if($idade <= 20) {
+                $ret .= $indice[$grupo][0];
+            }
+            elseif($idade <= 24) {
+                $ret .= $indice[$grupo][1];
+            }
+            elseif($idade <= 34) {
+                $ret .= $indice[$grupo][2];
+            }
+            elseif($idade <= 64) {
+                $ret .= $indice[$grupo][3];
+            }
+            else {
+                $ret .= $indice[$grupo][4];
+            }
+        }
+        else {
+            $ret .= "Idade fora da faixa necessária!";
+        }
+        return $ret;
+    }
 }
 
 ?>
