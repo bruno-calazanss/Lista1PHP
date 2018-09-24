@@ -324,6 +324,89 @@ class Lista {
         $ret .= "Total pago pelos clientes = R$ $totalPago<br>";
         return $ret;
     }
+
+    private function ex28($salarioMin, $nome, $salario) {
+        for($i=0, $n=1, $reajusteTotal=0, $ret=''; $i<count($nome); $i++, $n++) {
+            $ret .= "Funcionario $n:<br><br>";
+            if($_GET['salario'][$i] < ($_GET["salarioMin"]*3)) {
+                $reajuste = $_GET['salario'][$i]*0.5;
+            }
+            elseif($_GET['salario'][$i] <= ($_GET["salarioMin"]*10)) {
+                $reajuste = $_GET['salario'][$i]*0.2;
+            }
+            elseif($_GET['salario'][$i] <= ($_GET["salarioMin"]*20)) {
+                $reajuste = $_GET['salario'][$i]*0.15;
+            }
+            else {
+                $reajuste = $_GET['salario'][$i]*0.10;
+            }
+            $ret .= "Reajuste: R$ $reajuste<br>";
+            $ret .= "Novo salário: R$ " . ($_GET['salario'][$i]+$reajuste) . "<br><br>";
+            $reajusteTotal+=$reajuste;
+        }
+        $ret .= "<hr class='mt-0'>";
+        $ret .= "Aumento total da folha de pagamento = R$ $reajusteTotal<br>";
+        return $ret;
+    }
+
+    private function ex29($num) {
+        $meses = array(1 => 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+        'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
+        return $meses[$_GET['mes']];
+    }
+
+    private function ex31($nums) {
+        sort($_GET['num']);
+        return "{$_GET['num'][0]} < {$_GET['num'][1]} < {$_GET['num'][2]}";
+    }
+
+    private function ex32($num1, $num2, $op) {
+        $ret = '';
+        switch($op) {
+            case "+": {
+                $ret .= "$num1 + $num2 = " . ($num1 + $num2);
+                break;
+            }
+            case "-": {
+                $ret .= "$num1 - $num2 = " . ($num1 - $num2);
+                break;
+            }
+            case "*": {
+                $ret .= "$num1 * $num2 = " . ($num1 * $num2);
+                break;
+            }
+            case "/": {
+                if($num2 != 0) {
+                    $ret .= "$num1 / $num2 = " . ($num1 / $num2);
+                }
+                else {
+                    $ret .= "Erro: Divisão por zero!";
+                }
+                break;
+            }
+            default: {
+                $ret .= "Operador não definido!";
+            }
+        }
+        return $ret;
+    }
+
+    private function ex33($lado1, $lado2, $lado3) {
+        if($lado1 < ($lado2 + $lado3) && $lado2 < ($lado1 + $lado3) && $lado3 < ($lado1 + $lado2)) {
+            if($lado1 == $lado2 && $lado1 == $lado3) {
+                return "Trinângulo equilátero";
+            }
+            elseif($lado1 != $lado2 && $lado1 != $lado3 && $lado2 != $lado3) {
+                return "Trinângulo escaleno";
+            }
+            else {
+                return "Trinângulo isósceles";
+            }
+        }
+        else {
+            return "Não é um triângulo!";
+        }
+    }
 }
 
 ?>
