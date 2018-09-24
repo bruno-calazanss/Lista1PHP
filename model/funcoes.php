@@ -110,13 +110,11 @@ class Lista {
         if($num1 > $num2) {
             return 'Maior: num1=' . $num1;
         }
+        elseif($num1 < $num2) {
+            return 'Maior: num2=' . $num2;
+        }
         else {
-            if($num1 < $num2) {
-                return 'Maior: num2=' . $num2;
-            }
-            else {
-                return 'Números iguais!';
-            }
+            return 'Números iguais!';
         }
     }
 
@@ -139,13 +137,11 @@ class Lista {
         if($media >= 7) {
             $ret .= 'Situacao: aprovado';
         }
+        elseif($media >= 5.1) {
+            $ret .= 'Situacao: recuperacao';
+        }
         else {
-            if($media >= 5.1) {
-                $ret .= 'Situacao: recuperacao';
-            }
-            else {
-                $ret .= 'Situacao: reprovado';
-            }
+            $ret .= 'Situacao: reprovado';
         }
         return $ret;
     }
@@ -154,8 +150,7 @@ class Lista {
         $ret = 'Números entre 10 e 150: <br><br>';
         for($i=0; $i<count($n); $i++)
         {
-            if($n[$i] >= 10 && $n[$i] <= 150)
-            {
+            if($n[$i] >= 10 && $n[$i] <= 150) {
                 $ret .= 'Num' . ($i+1) . ":{$n[$i]}<br>";
             }
         }
@@ -219,6 +214,114 @@ class Lista {
         $ret .= '<hr>';
         $ret .= "Total candidatos aptos para o servico militar = $apto<br>";
         $ret .= "Total geral = $i<br>";
+        return $ret;
+    }
+
+    private function ex22($precoC, $precoV) {
+        for($i=0, $n=1, $somaCusto=0, $somaVenda=0, $ret=''; $i<count($precoC); $i++, $n++) {
+            $somaCusto += $precoC[$i];
+            $somaVenda += $precoV[$i];
+            $ret .= "Produto $n:<br>";
+            if($precoC[$i] < $precoV[$i]) {
+                $ret .= "Lucro: ";
+            }
+            elseif($precoC[$i] > $precoV[$i]) {
+                $ret .= "Prejuizo: ";
+            }
+            else {
+                $ret .= "Empate: ";
+            }
+            $ret .= "R$ " . ($precoV[$i]-$precoC[$i]) . "<br><br>";
+        }
+        $ret .= "<hr class='mt-0'>";
+        $ret .= 'Media de preços de custo: ' . $somaCusto/count($precoC) . '<br>';
+        $ret .= 'Media de preços de venda: ' . $somaVenda/count($precoC) . '<br>';
+        return $ret;
+    }
+
+    private function ex23($num) {
+        $ret = '';
+        if($num > 80) {
+            $ret .= "Maior que 80!";
+        }
+        elseif($num < 25) {
+            $ret .= "Menor que 25!";
+        }
+        elseif($num == 40) {
+            $ret .= "Igual a 40!";
+        }
+        return $ret;
+    }
+
+    private function ex24($num) {
+        $ret = '';
+        for($i=0; $i<count($num); $i++) {
+            $ret .= "$num[$i] = ";
+            if($num[$i] > 0) {
+                $ret .= "Positivo";
+            }
+            elseif($num[$i] < 0) {
+                $ret .= "Negativo";
+            }
+            else {
+                $ret .= "Zero";
+            }
+            $ret .= "<br>";
+        }
+        return $ret;
+    }
+
+    private function ex25($num1, $num2) {
+        $ret = '';
+        if($num1 > $num2) {
+            $ret .= "Números diferentes.<br>";
+            $ret .= "O primeiro número é maior.";
+        }
+        elseif($num2 > $num1) {
+            $ret .= "Números diferentes.<br>";
+            $ret .= "O segundo número é maior.";
+        }
+        else {
+            $ret .= "Números iguais.";
+        }
+        return $ret;
+    }
+
+    private function ex26($num) {
+        $nums = array(1 => "Um", "Dois", "Três", "Quatro", "Cinco");
+        if($num >= 1 && $num <=5) {
+            return $nums[$num];
+        }
+        else {
+            return 'Número inválido!';
+        }
+    }
+
+    private function ex27($valor, $combustivel) {
+        for($i=0, $n=1, $totalDesconto=0, $totalPago=0, $ret=''; $i<count($valor); $i++, $n++) {
+            $ret .= "Veículo $n:<br><br>";
+            switch($combustivel[$i]) {
+                case 'A': {
+                    $valorDesconto = $valor[$i]*0.25;
+                    break;
+                }
+                case 'G': {
+                    $valorDesconto = $valor[$i]*0.21;
+                    break;
+                }
+                case 'D': {
+                    $valorDesconto = $valor[$i]*0.14;
+                    break;
+                } 
+            }
+            $totalDesconto += $valorDesconto;
+            $totalPago += $valor[$i]-$valorDesconto;
+            $ret .= "Valor do desconto = R$ $valorDesconto<br>";
+            $ret .= "Valor à ser pago = R$ " . ($_GET['valor'][$i]-$valorDesconto) . "<br><br>";
+        }
+        $ret .= "<hr class='mt-0'>";
+        $ret .= "Total de desconto = R$ $totalDesconto<br>";
+        $ret .= "Total pago pelos clientes = R$ $totalPago<br>";
         return $ret;
     }
 }

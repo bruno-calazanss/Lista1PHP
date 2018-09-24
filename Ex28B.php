@@ -1,7 +1,7 @@
 <?php
     $qtdInputs = 2;
     $qtd = count($_GET)>1 ? (count($_GET)-2)/$qtdInputs : 0;
-    $salarioMin = (isset($_GET['salarioMin']) && is_numeric($_GET['salarioMin'])) ? $_GET['salarioMin'] : "";
+    $salarioMin = !empty($_GET['salarioMin']) ? $_GET['salarioMin'] : "";
     $reajusteTotal = 0;
 ?>
 
