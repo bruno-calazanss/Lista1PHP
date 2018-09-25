@@ -3,18 +3,18 @@
 <html lang="pt">
 
 <head>
-    <?php require_once("../include/head.inc.html"); ?>
+    <?php require_once("include/head.inc.php"); ?>
 </head>
 
 <body>
 
-    <?php include_once("../include/navbar.inc.html"); ?>
+    <?php include_once("include/navbar.inc.php"); ?>
 
     <main role="main" class="container mb-5">
         <div class="card">
             <div class="card-header">
                 <?= ucfirst($data['ex']); ?>
-                <a href="<?= "/Lista%20I%20-%20PHP/index.php?ex=$data[ex]" ?>" class="d-inline-block float-right btn btn-danger">Voltar</a>
+                <a href="<?= LISTA_DIR . "/index.php?ex=$data[ex]" ?>" class="d-inline-block float-right btn btn-danger">Voltar</a>
             </div>
             <div class="card-body">
                 <div class="card-text">
@@ -26,7 +26,7 @@
         </div>
     </main>
 
-    <?php require_once("../include/scripts.inc.html"); ?>
+    <?php require_once("include/scripts.inc.php"); ?>
 </body>
 
 </html>
