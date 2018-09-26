@@ -14,7 +14,11 @@
         <div class="card">
             <div class="card-header">
                 <?= ucfirst($data['ex']); ?>
-                <a href="<?= LISTA_DIR . "/index.php?ex=$data[ex]" ?>" class="d-inline-block float-right btn btn-danger">Voltar</a>
+                <a href="<?= LISTA_DIR . "/index.php?ex=$data[ex]" ?>" class="d-inline-block float-right btn btn-primary">Voltar</a>
+                <form action="<?= LISTA_DIR . "/controller/gerarPDF.php" ?>" class="d-inline-block float-right " type="POST">
+                    <input type="hidden" name="dadosPDF" value="<?= htmlentities($data['ret']); ?>">
+                    <button type="submit" class="btn btn-danger mr-2">Gerar PDF</button>
+                </form>
             </div>
             <div class="card-body">
                 <div class="card-text">
