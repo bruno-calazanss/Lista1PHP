@@ -2,7 +2,7 @@
     <div class="card-header">Ex34</div>
     <div class="card-body">
         <div class="card-text">
-            <form action="<?=LISTA_DIR?>/controller/resposta.php" method="GET">
+            <form action="<?=LISTA_DIR?>/controller/resposta.php?ex=ex34" method="POST">
                 <div class="form-group">
                     <label for="aulas">Aulas lecionadas:</label>
                     <input type="number" name="aulas" class="form-control" id="aulas" required>
@@ -23,7 +23,6 @@
                     <input type="radio" value="N3" name="nivel" class="form-check-input" id="nivel" required>
                     <label class="form-check-label" for="nivel">Nível 3</label>
                 </div>
-                <input type="text" name="ex" value="ex34" hidden>
                 <button type="submit" class="d-block btn btn-primary">Enviar</button>
             </form>
         </div>

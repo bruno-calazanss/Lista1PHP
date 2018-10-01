@@ -2,12 +2,11 @@
     <div class="card-header">Ex9</div>
     <div class="card-body">
         <div class="card-text">
-            <form action="<?=LISTA_DIR?>/controller/resposta.php" method="GET">
+            <form action="<?=LISTA_DIR?>/controller/resposta.php?ex=ex9" method="POST">
                 <div class="form-group">
                     <label for="valor">Valor depositado:</label>
-                    <input type="number" name="valor" class="form-control" id="valor" required>
+                    <input type="number" name="valor" class="form-control" id="valor" step=".01" required>
                 </div>
-                <input type="text" name="ex" value="ex9" hidden>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>

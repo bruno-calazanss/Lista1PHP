@@ -2,7 +2,7 @@
     <div class="card-header">Ex40</div>
     <div class="card-body">
         <div class="card-text">
-            <form action="<?=LISTA_DIR?>/controller/resposta.php" method="GET" id="form">
+            <form action="<?=LISTA_DIR?>/controller/resposta.php?ex=ex40" method="POST" id="form">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" class="form-control" id="nome" required>
@@ -20,7 +20,6 @@
                         <option value="B">Baixo</option>
                     </select>
                 </div>
-                <input type="text" name="ex" value="ex40" hidden>
                 <button type="submit" class="d-block btn btn-primary">Enviar</button>
             </form>
         </div>

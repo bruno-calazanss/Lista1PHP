@@ -2,7 +2,7 @@
     <div class="card-header">Ex39</div>
     <div class="card-body">
         <div class="card-text">
-            <form action="<?=LISTA_DIR?>/controller/resposta.php" method="GET">
+            <form action="<?=LISTA_DIR?>/controller/resposta.php?ex=ex39" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" class="form-control" id="nome" required>
@@ -23,7 +23,6 @@
                     <label for="ef">Exame final:</label>
                     <input type="number" name="ef" class="form-control" id="ef" step=".1" min="0" max="10" required>
                 </div>
-                <input type="text" name="ex" value="ex39" hidden>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>

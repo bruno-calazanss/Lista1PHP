@@ -2,13 +2,13 @@
     <div class="card-header">Ex37</div>
     <div class="card-body">
         <div class="card-text">
-            <form action="<?=LISTA_DIR?>/controller/resposta.php" method="GET">
+            <form action="<?=LISTA_DIR?>/controller/resposta.php?ex=ex37" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" class="form-control" id="nome" required>
                 </div>
                 <div class="form-group">
-                    <label for="altura">Altura:</label>
+                    <label for="altura">Altura em metros:</label>
                     <input type="number" name="altura" class="form-control" id="altura" step=".01" required>
                 </div>
                 <div class="form-group">
@@ -25,7 +25,6 @@
                         class="form-check-input" id="sexo" required>
                     <label class="form-check-label" for="sexo">Feminino</label>
                 </div>
-                <input type="text" name="ex" value="ex37" hidden>
                 <button type="submit" class="d-block btn btn-primary">Enviar</button>
             </form>
         </div>
