@@ -11,7 +11,7 @@
 
     <main role="main" class="container mb-5">
         <?php 
-            require_once('view/' .ucfirst($dados['ex']).'.php');
+            require_once("view/$dados[ex].php");
          ?>
     </main>
 
