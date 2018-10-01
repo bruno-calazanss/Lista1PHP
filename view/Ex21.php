@@ -29,13 +29,13 @@
                             <label for="<?= "sexo$i" ?>"><?= "Sexo $n:" ?></label>
                             <input type="hidden" name="sexo[]" value="<?= $_REQUEST['sexo'][$i] ?>">
                             <input type="text" value="<?= $sexoIndex[$_REQUEST['sexo'][$i]]; ?>" 
-                                class="form-control" id="<?= "sexo$i" ?>" disabled>
+                                class="form-control" id="<?= "sexo$i" ?>" readonly>
                         </div>
                         <div class="form-group w-100 d-inline-block">
                             <label for="<?= "saude$i" ?>"><?= "Estado de saúde $n:" ?></label>
                             <input type="hidden" name="saude[]" value="<?= $_REQUEST['saude'][$i] ?>">
                             <input type="text" value="<?= $saudeIndex[$_REQUEST['saude'][$i]]; ?>" 
-                                class="form-control" id="<?= "saude$i" ?>" disabled>
+                                class="form-control" id="<?= "saude$i" ?>" readonly>
                         </div>
                     </div>
                 </div> 

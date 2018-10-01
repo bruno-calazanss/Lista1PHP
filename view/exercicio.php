@@ -12,7 +12,7 @@
     <main role="main" class="container mb-5">
         <?php 
             require_once("view/$dados[ex].php");
-         ?>
+        ?>
     </main>
 
     <?php require_once("include/scripts.inc.php"); ?>

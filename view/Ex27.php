@@ -23,7 +23,7 @@
                             <label for="<?= "combustivel$i" ?>"><?= 'Tipo de combustível:'; ?></label>
                             <input type="hidden" name="combustivel[]" value="<?= $_REQUEST['combustivel'][$i] ?>">
                             <input type="text" value="<?= $combustivelIndex[$_REQUEST['combustivel'][$i]]; ?>" 
-                                class="form-control" id="<?= "combustivel$i" ?>" disabled>
+                                class="form-control" id="<?= "combustivel$i" ?>" readonly>
                         </div>
                     </div>
                 </div>
